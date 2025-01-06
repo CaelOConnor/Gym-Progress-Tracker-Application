@@ -1,10 +1,93 @@
-body{
-    background-color: rgb(30,30,30);
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+/* background color*/
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background: skyblue;
+    padding: 10px;
+}
+
+/* Grey box in middle of screen*/
+.workout-app{
+    width: 100%;
+    max-width: 540px;
+    background: white;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+/*Text saying Existing Workouts */
+.workout-app h2{
+    color: black;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/*bar containing input fielkd and add button */
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: lightgrey;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+/* input field taking up entire bar */
+input{
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+}
+
+/* add button on rihgt side of input bar */
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: skyblue;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+/* ul means un ordered list outline for workouts */
+ul li{
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+/* x on the right*/
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
     text-align: center;
 }
-.wrapper {
-    position: fixed;
-    left: 50%;
-    transform: translate(-50%);
-    background-color: rgb(99, 96, 96);
+
+/* */
+ul li span::before{
+    background: #edeef0;
 }

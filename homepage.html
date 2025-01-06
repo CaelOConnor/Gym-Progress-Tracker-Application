@@ -7,15 +7,17 @@
     <link rel="stylesheet" href="homepagestyles.css">
 </head>
 <body>
-    <div class = "wrapper">
-        <div>
-            <h1>Existing Workouts</h1>
-            <ul id = workout-list>
-                <li>Exercise 1</li>
-                <li>Exercise 2</li>
-                <li>Exercise 3</li>
+    <div class="container">
+        <div class="workout-app">
+            <h2>Existing Workouts</h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your text">
+                <button onclick="addWorkout()">Add</button>
+            </div>
+            <ul id="list-container">
             </ul>
         </div>
     </div>
+    <script src="script.js"></script>   
 </body>
 </html>
