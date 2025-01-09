@@ -13,6 +13,31 @@
         <div class="workout-app">
             <h2>Existing Workouts</h2>
             <div class="row">
+                <label for="newDay">Create a new day for your split:</label>
+                <input type="text" id="newDay" placeholder="What would you like to name this Day">
+                <button onclick="addNewDay()">Add New Day</button>
+            </div>
+        
+            <div class="day-container">
+                <label for="days">What day are you working on</label>
+                <select name="days" id="days">
+                    <option value="Day1">Day1</option>
+                    <option value="Day2">Day2</option>
+                    <option value="Day3">Day3</option>
+                    <option value="Day4">Day4</option>
+                    <option value="Day5">Day5</option>
+                    <option value="Day6">Day6</option>
+                    <option value="Day7">Day7</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    
+
+    <!--<div class="container">
+        <div class="workout-app">
+            <h2>Existing Workouts</h2>
+            <div class="row">
                 <input type="text" id="input-box" placeholder="Add your text">
                 <button onclick="addWorkout()">Add</button>
             </div>
@@ -25,7 +50,7 @@
                 <a href="#">Add exercise here</a>
             </div>
         </div>
-    </div>
+    </div> -->
     <script src="script.js"></script>   
 </body>
 </html>

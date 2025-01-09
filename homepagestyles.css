@@ -1,3 +1,4 @@
+
 *{
     margin: 0;
     padding: 0;
@@ -16,7 +17,7 @@
 /* Grey box in middle of screen*/
 .workout-app{
     width: 100%;
-    max-width: 540px;
+    max-width: 1440px;
     background: white;
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
@@ -52,7 +53,7 @@ input{
     font-weight: 14px;
 }
 
-/* add button on rihgt side of input bar */
+/* add button on right side of input bar */
 button{
     border: none;
     outline: none;
