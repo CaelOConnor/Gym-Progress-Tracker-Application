@@ -91,3 +91,25 @@ ul li span{
 ul li span::before{
     background: #edeef0;
 }
+
+.dropdown__menu {
+    border: 1px solid #eee;
+    width: 100px
+}
+
+.dropdown__menu a {
+    display: block;
+}
+
+.dropdown__button {
+    background: white;
+    border: none;
+    padding: 5px;
+    width: 120px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}

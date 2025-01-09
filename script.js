@@ -2,6 +2,8 @@
 
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const dropDownBtn = document.querySelector(".dropdown__button");
+const dropDownMenu = document.querySelector(".dropdown__menu");
 
 function addWorkout(){
     if(inputBox.value === ''){
@@ -38,3 +40,8 @@ function showWorkouts(){
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showWorkouts();
+
+dropDownBtn.addEventListener('click', () => {
+    dropDownMenu.classList.toggle("hide");
+});
+
