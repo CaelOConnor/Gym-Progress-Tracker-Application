@@ -14,22 +14,29 @@
             <h2>Existing Workouts</h2>
             <div class="row">
                 <label for="newDay">Create a new day for your split:</label>
-                <input type="text" id="newDay" placeholder="What would you like to name this Day">
+                <input type="text" id="newDay" placeholder="What would you like to name this day">
                 <button onclick="addNewDay()">Add New Day</button>
             </div>
         
-            <div class="day-container">
+            <div class="day-container" id="dayContainer" style="display: none;">
                 <label for="days">What day are you working on</label>
-                <select name="days" id="days">
-                    <option value="Day1">Day1</option>
-                    <option value="Day2">Day2</option>
-                    <option value="Day3">Day3</option>
-                    <option value="Day4">Day4</option>
-                    <option value="Day5">Day5</option>
-                    <option value="Day6">Day6</option>
-                    <option value="Day7">Day7</option>
+                <select name="days" id="days" onchange="displayExercises()">
+
                 </select>
             </div>
+
+            <div class="exercise-container" id="exercise-container" style="display: none;">
+                <h3>Exercises for <span id="selected-day">Day1</span></h3>
+                <label for="newExercise">Add an exercise:</label>
+                <input type="text" id="newExercie" placeholder="Exercise name">
+                <button onclick="addExercise()">Add Excercise</button>
+
+                <ul id="exercise-list">
+
+                </ul>
+
+            </div>
+
         </div>
     </div>
     

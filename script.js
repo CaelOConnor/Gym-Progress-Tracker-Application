@@ -46,23 +46,65 @@ dropDownBtn.addEventListener('click', () => {
 });
 */
 
+//stores exercises
+let exercisesData = {};
+
 //add new wokrout day with dropwdown for the exercises
 function addNewDay() {
-    const newDayInput = document.getElementById("newDay");
-    const newDay = newDayInput.value.trim();
-    const daysSelect = document.getElementById("days");
-
-    if(inputBox.value === ''){
-        alert("You must write a name for the day!");
+    const newDayName = document.getElementById('newDay').value;
+    if (newDayName.trim() === "") {
+        alert("Please enter a valid name for the new day.");
         return;
     }
-    const option = document.createElement("option");
-    option.textContent = newDay;
-    
-    daysSelect.appendChild(option);
-    newDayInput.value = "";
-    saveData();
+    const dayContainer = document.getElementById('dayContainer');
+    if (dayContainer.style.display === "none") {
+        dayContainer.style.display = "block";
+    }
+    const daysSelect = document.getElementById('days');
+    const newOption = document.createElement('option');
+    newOption.value = newDayName;
+    newOption.textContent = newDayName;
+    daysSelect.appendChild(newOption);
+    exercisesData[newDayName] = [];
 }
+
+// makes exercises visible after selecting that day
+function displayExercises(){
+    const selectedDay = document.getElementById('days').value;
+    const exerciseContainer = document.getElementById('exercise-container');
+    const selectedDayElement = document.getElementById('selected-day');
+    const exerciseList = document.getElementById('exercise-list');
+    if (selectedDay) {
+        exerciseContainer.style.display = "block";
+        selectedDayElement.textContent = selectedDay;
+        exerciseList.innerHTML = '';
+        exercisesData[selectedDay].forEach(exercise => {
+            const listItem = document.createElement('li');
+            listItem.textContent = exercise;
+            exerciseList.appendChild(listItem);
+        });
+    } else {
+        exerciseContainer.style.display = "none";
+    }
+}
+
+//adds exercise for selected day
+function addExercise(){
+    const selectedDay = document.getElementById('days').value;
+    const exerciseName = document.getElementById('newExercise').value;
+    if (exerciseName.trim() === "") {
+        alert("Please enter a valid exercise name.");
+        return;
+    }
+    exercisesData[selectedDay].push(exerciseName);
+    const exerciseList = document.getElementById('exercise-list');
+    const listItem = document.createElement('li');
+    listItem.textContent = exerciseName;
+    exerciseList.insertBefore(listItem, exerciseList.firstChild);
+}
+
+
+
 
 function saveData(){
     localStorage.setItem("data" , listContainer.innerHTML);
