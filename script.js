@@ -78,9 +78,13 @@ function displayExercises(){
         exerciseContainer.style.display = "block";
         selectedDayElement.textContent = selectedDay;
         exerciseList.innerHTML = '';
-        exercisesData[selectedDay].forEach(exercise => {
+        exercisesData[selectedDay].forEach((exercise, index) => {
             const listItem = document.createElement('li');
-            listItem.textContent = exercise;
+            //I have no idea what this does
+            listItem.innerHTML = `
+                ${exercise.name} | Reps: <span class="reps">${exercise.reps}</span> | Weight: <span class="weight">${exercise.weight}</span>
+                <button onclick="editExercise(${index}, '${selectedDay}')">Edit</button>
+            `;
             exerciseList.appendChild(listItem);
         });
     } else {
@@ -92,16 +96,31 @@ function displayExercises(){
 function addExercise(){
     const selectedDay = document.getElementById('days').value;
     const exerciseName = document.getElementById('newExercise').value;
-    if (exerciseName.trim() === "") {
-        alert("Please enter a valid exercise name.");
+    const reps = document.getElementById('newReps').value.trim();
+    const weight = document.getElementById('newWeight').value.trim();
+    if (!exerciseName || !reps || !weight) {
+        alert("Please fill in all fields (exercise name, reps, and weight).");
         return;
     }
-    exercisesData[selectedDay].push(exerciseName);
-    const exerciseList = document.getElementById('exercise-list');
-    const listItem = document.createElement('li');
-    listItem.textContent = exerciseName;
-    exerciseList.insertBefore(listItem, exerciseList.firstChild);
+    exercisesData[selectedDay].push({
+        name: exerciseName,
+        reps: reps,
+        weight: weight
+    });
+    displayExercises();
+    document.getElementById('newExercise').value = '';
+    document.getElementById('newReps').value = '';
+    document.getElementById('newWeight').value = '';
 }
+
+//edit exercises
+function editExercise(index, selectedDay) {
+    const exercise = exercisesData[selectedDay][index];
+    document.getElementById('newExercise').value = exercise.name;
+    document.getElementById('newReps').value = exercise.reps;
+    document.getElementById('newWeight').value = exercise.weight;
+}
+
 
 
 

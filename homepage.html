@@ -21,22 +21,28 @@
             <div class="day-container" id="dayContainer" style="display: none;">
                 <label for="days">What day are you working on</label>
                 <select name="days" id="days" onchange="displayExercises()">
-
+                    
                 </select>
             </div>
 
+            <br>
+
             <div class="exercise-container" id="exercise-container" style="display: none;">
                 <h3>Exercises for <span id="selected-day">Day1</span></h3>
-                <label for="newExercise">Add an exercise:</label>
-                <input type="text" id="newExercie" placeholder="Exercise name">
-                <button onclick="addExercise()">Add Excercise</button>
-
-                <ul id="exercise-list">
-
-                </ul>
-
+                <br>
+                <div class="row">
+                    <label for="newExercise">Add an exercise:</label>
+                    <input type="text" id="newExercise" placeholder="Exercise name">
+                    <label for="newReps">Reps:</label>
+                    <input type="text" id="newReps" placeholder="Reps">
+                    <label for="newWeight">Weight:</label>
+                    <input type="text" id="newWeight" placeholder="Weight">
+                    <button onclick="addExercise()">Add Exercise</button>
+                </div>
+                
+                <ul id="exercise-list"></ul>
             </div>
-
+    
         </div>
     </div>
     
