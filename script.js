@@ -84,6 +84,7 @@ function displayExercises(){
             listItem.innerHTML = `
                 ${exercise.name} | Reps: <span class="reps">${exercise.reps}</span> | Weight: <span class="weight">${exercise.weight}</span>
                 <button onclick="editExercise(${index}, '${selectedDay}')">Edit</button>
+                <button onclick="removeExercise(${index}, '${selectedDay}')">Remove</button>
             `;
             exerciseList.appendChild(listItem);
         });
@@ -121,8 +122,10 @@ function editExercise(index, selectedDay) {
     document.getElementById('newWeight').value = exercise.weight;
 }
 
-
-
+function removeExercise(index, day) {
+    exercisesData[day].splice(index, 1);
+    displayExercises();
+}
 
 
 function saveData(){
